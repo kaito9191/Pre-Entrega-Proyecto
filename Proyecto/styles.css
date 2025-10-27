@@ -1,0 +1,165 @@
+/* -------------------------------------------
+   A. Importación de Google Fonts (Requisito 3)
+   ------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Oswald:wght@500&display=swap');
+
+/* Reset básico para mejor control de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Aplicar la fuente principal al cuerpo */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f9; /* Ejemplo de background simple */
+    color: #333;
+}/* -------------------------------------------
+   C. Estilos básicos: header y footer
+   ------------------------------------------- */
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+}
+
+footer {
+    /* Req. 3: Aplicación de background (Ejemplo con color) */
+    background-color: #111;
+    color: #ccc;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 3rem; /* Espacio para separar del contenido */
+}
+
+/* -------------------------------------------
+   C. Estilos básicos: Lista de navegación (nav)
+   ------------------------------------------- */
+nav {
+    background-color: #555;
+}
+
+nav ul {
+    list-style: none; /* Quitar viñetas de lista */
+    display: flex; /* Usar flexbox para que se vean horizontales */
+    justify-content: center;
+    padding: 0.8rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0 15px;
+    font-weight: 700;
+}
+
+nav ul li a:hover {
+    color: #ffd700; /* Efecto hover para interacción */
+}
+
+/* Estilos a las secciones principales */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+section {
+    padding: 40px 0;
+    border-bottom: 1px solid #ddd;
+}
+/* -------------------------------------------
+   4. A. Sección Productos con Flexbox
+   ------------------------------------------- */
+.contenedor-productos {
+    display: flex; /* Convierte el contenedor en Flexbox */
+    flex-wrap: wrap; /* Permite que las tarjetas salten a la siguiente línea en pantallas pequeñas */
+    gap: 20px; /* Espacio entre las tarjetas */
+    justify-content: space-around; /* Distribuye el espacio entre ellas */
+    margin-top: 20px;
+}
+
+.card-producto {
+    /* Define un ancho inicial, permitiendo que Flexbox lo ajuste */
+    width: 300px; 
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.card-producto img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+/* -------------------------------------------
+   4. B. Sección Reseñas con Grid
+   ------------------------------------------- */
+.contenedor-resenas {
+    display: grid; /* Convierte el contenedor en Grid */
+    /* 2 columnas iguales por defecto */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; /* Espacio entre las reseñas */
+    margin-top: 20px;
+}
+
+.resena {
+    background-color: #e6e6fa; /* Lavanda suave para destacar */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+}
+
+.resena h4 {
+    margin-bottom: 5px;
+    color: #4a4a8a;
+}
+
+.autor {
+    text-align: right;
+    font-style: italic;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+/* -------------------------------------------
+   4. C. Media Queries (Diseño Responsivo)
+   ------------------------------------------- */
+@media (max-width: 768px) {
+    
+    /* Para el móvil, la navegación pasa de horizontal a vertical */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        padding: 5px 0;
+    }
+
+    /* La sección de Productos pasa a ser de una sola columna */
+    .contenedor-productos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* La sección de Reseñas también pasa a ser de una sola columna */
+    .contenedor-resenas {
+        grid-template-columns: 1fr; /* Una sola columna para móviles */
+    }
+
+    /* La tarjeta de producto ocupa todo el ancho disponible */
+    .card-producto {
+        width: 90%; 
+    }
+}
